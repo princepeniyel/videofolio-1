@@ -208,7 +208,8 @@ exports.deleteProject = async (req, res) => {
     }
     
     // Delete project
-    await project.remove();
+    await Project.findByIdAndDelete(req.params.id);
+
     
     req.flash('success_msg', 'Project deleted successfully');
     res.redirect('/dashboard');
